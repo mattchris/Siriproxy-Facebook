@@ -3,10 +3,10 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "siriproxy-facebook"
-  s.version     = "0.0.2" 
-  s.authors     = ["rosswaycaster"]
-  s.email       = ["rosswaycaster@gmail.com"]
-  s.homepage    = "http://rosswaycaster.com"
+  s.version     = "0.0.1a" 
+  s.authors     = ["mattchris"]
+  s.email       = ["mattchris@gmail.com"]
+  s.homepage    = "http://github.com/mattchris/"
   s.summary     = %q{Siri Proxy Facebook Plugin}
   s.description = %q{This is a plugin that lets users interact with their Facebook account through Siri. }
 
