@@ -82,10 +82,10 @@ listen_for /facebook status (.+)/i do |facebookText|
             )
             say "Your status has been updated."
               rescue Exception
-              pp $!
-              say "Sorry, I encountered an error: #{$!}"
+                pp $!
+                say "Sorry, I encountered an error: #{$!}"
               ensure
-              request_completed
+                request_completed
             end
         }
         else
