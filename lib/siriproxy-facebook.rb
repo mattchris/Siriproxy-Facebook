@@ -12,16 +12,16 @@ class SiriProxy::Plugin::Facebook < SiriProxy::Plugin
     self.username = config["username"]  
   end
 
-  listen_for /test facebook/i do
+    listen_for /test facebook/i do
           userjson = HTTParty.get("https://graph.facebook.com/#{self.username}").body rescue nil
           user = JSON.parse(userjson) rescue nil
 
             say "If your name is #{user['name']} then Facebook is set up correctly!"
 
           request_completed #always complete your request! Otherwise the phone will "spin" at the user!
-  end
+    end
 
-  listen_for /check facebook/i do
+    listen_for /check facebook/i do
     
           page = HTTParty.get("https://api.facebook.com/method/notifications.getList?access_token=#{self.access_token}&format=json").body rescue nil
           notifications = JSON.parse(page) rescue nil
@@ -53,7 +53,7 @@ class SiriProxy::Plugin::Facebook < SiriProxy::Plugin
             end
   
           request_completed #always complete your request! Otherwise the phone will "spin" at the user!
-  end
+    end
     
   listen_for /facebook status (.+)/i do |facebookText|
     say "Here is your status:"
