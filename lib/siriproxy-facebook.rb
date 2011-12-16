@@ -68,9 +68,7 @@ listen_for /facebook status (.+)/i do |facebookText|
         object.views << SiriAnswerSnippet.new([answer])
         send_object object
 
-
-
-    if confirm "Ready to send it?"
+       if confirm "Ready to send it?"
         say "Posting to Facebook..."
         Thread.new {
             begin
