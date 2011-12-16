@@ -95,4 +95,3 @@ listen_for /facebook status (.+)/i do |facebookText|
         request_completed
     end
 end
-end
