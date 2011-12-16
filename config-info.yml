@@ -1,0 +1,10 @@
+#Example configuration options that can be placed in your main SiriProxy config.yml
+
+##########################
+#NOTICE: Modifying these options in this file has no effect. You must put them in SiriProxy's config.yml!
+##########################
+    
+    - name: 'Facebook'
+      git: 'git://github.com/mattchris/Siriproxy-Facebook.git'
+      access_token: 'YOUR_ACCESS_TOKEN' 
+      username: 'YOUR_FACEBOOK_USERNAME'
