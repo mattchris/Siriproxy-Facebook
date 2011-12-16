@@ -59,35 +59,33 @@ class SiriProxy::Plugin::Facebook < SiriProxy::Plugin
 listen_for /facebook status (.+)/i do |facebookText|
     say "Here is your status:"
 
-        # Preview of the Status update
-        object = SiriAddViews.new
-        object.make_root(last_ref_id)
-        answer = SiriAnswer.new("Facebook Status", [
-                            SiriAnswerLine.new('logo','http://cl.ly/CXNm/Screen%Shot%202011-12-11%20at%2011.26.52%20AM.png'), #facebook logo
-                            SiriAnswerLine.new(facebookText)
-                            ])
-        object.views << SiriAnswerSnippet.new([answer])
-        send_object object
-
-
+    # Preview of the Status update
+    object = SiriAddViews.new
+    object.make_root(last_ref_id)
+    answer = SiriAnswer.new("Facebook Status", [
+      SiriAnswerLine.new('logo','http://cl.ly/CXNm/Screen%Shot%202011-12-11%20at%2011.26.52%20AM.png'), #facebook logo
+      SiriAnswerLine.new(facebookText)
+    ])
+    object.views << SiriAnswerSnippet.new([answer])
+    send_object object
 
     if confirm "Ready to send it?"
         say "Posting to Facebook..."
         Thread.new {
-            begin
-                page = HTTParty.post(
-                                     "https://graph.facebook.com/me/feed",
-                                     :query => {
-                                     :message => (facebookText),
-                                     :access_token => (access_token)
-                                     }
-                                     )
-                say "Your status has been updated."
-                rescue Exception
-                pp $!
-                say "Sorry, I encountered an error: #{$!}"
-                ensure
-                request_completed
+          begin
+            page = HTTParty.post(
+               "https://graph.facebook.com/me/feed",
+                   :query => {
+                   :message => (facebookText),
+                   :access_token => (access_token)
+                   }
+            )
+            say "Your status has been updated."
+              rescue Exception
+              pp $!
+              say "Sorry, I encountered an error: #{$!}"
+              ensure
+              request_completed
             end
         }
         else
