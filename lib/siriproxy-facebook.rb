@@ -95,3 +95,4 @@ class SiriProxy::Plugin::Facebook < SiriProxy::Plugin
     end
   end
 end
+end
