@@ -53,10 +53,9 @@ class SiriProxy::Plugin::Facebook < SiriProxy::Plugin
             end
   
           request_completed #always complete your request! Otherwise the phone will "spin" at the user!
-    end
-end
+  end
     
-listen_for /facebook status (.+)/i do |facebookText|
+  listen_for /facebook status (.+)/i do |facebookText|
     say "Here is your status:"
 
         # Preview of the Status update
@@ -94,4 +93,5 @@ listen_for /facebook status (.+)/i do |facebookText|
         say "Ok I won't send it."
         request_completed
     end
+  end
 end
