@@ -63,7 +63,7 @@ listen_for /facebook status (.+)/i do |facebookText|
     object = SiriAddViews.new
     object.make_root(last_ref_id)
     answer = SiriAnswer.new("Facebook Status", [
-      SiriAnswerLine.new('logo','http://dl.dropbox.com/u/11759511/Facebook.PNG'), #facebook logo
+      SiriAnswerLine.new('logo','https://graph.facebook.com/#{self.username}/picture'), #get profile picture
       SiriAnswerLine.new(facebookText)
     ])
     object.views << SiriAnswerSnippet.new([answer])
